@@ -1,0 +1,36 @@
+@import './Global.less';
+.listItem {
+    width: 100%;
+    cursor: pointer;
+    background-color: @backgroundColor;
+    transition: all 0.2s;
+    .label {
+        padding: 5px 10px;
+        width: 100%;
+        word-break: break-all;
+        box-sizing: border-box;
+        font-size: 14px;
+        background-color: transparent;
+    }
+}
+
+.listItem:hover {
+    background-color: @lightBackgroundColor;
+}
+
+.listItem-unable,
+.listItem-unable:hover {
+    cursor: not-allowed;
+    background-color: @backgroundColor;
+}
+
+.listItem-selected,
+.listItem-selected:hover {
+    background-color: @focusColor;
+    color: white;
+}
+
+.listItem-unable-selected {
+    .listItem-unable;
+    .listItem-selected;
+}

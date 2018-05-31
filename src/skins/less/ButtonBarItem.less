@@ -1,0 +1,37 @@
+@import './Button.less';
+@raduius: 3px;
+.buttonBarItem {
+    .button;
+    border-radius: 0;
+    border-right: none;
+    min-width: 50px;
+    &:first-child {
+        border-radius: 0;
+        border-radius: @raduius 0 0 @raduius;
+    }
+    &:last-child {
+        border-right: 1px solid @borderColor;
+        border-radius: 0 @raduius @raduius 0;
+    }
+    &:hover {
+        .button-over;
+    }
+}
+
+.buttonBarItem-unable,
+.buttonBarItem-unable:hover {
+    cursor: not-allowed;
+    background-color: @backgroundColor;
+}
+
+.buttonBarItem-selected,
+.buttonBarItem-selected:hover {
+    background-color: @focusColor;
+    border-color: @focusColor;
+    color: white;
+}
+
+.buttonBarItem-unable-selected {
+    .buttonBarItem-unable;
+    .buttonBarItem-selected;
+}

@@ -1,0 +1,91 @@
+@ui-black: #080810;
+@ui-red: #cc6699;
+@white: #fff;
+@lightwhite:rgba(255, 255, 255, .87);
+@height: 26px;
+
+.search-widget {
+    position: fixed;
+    right: 260px;
+    top: 10px;
+    box-sizing: border-box;
+    color: @white;
+    transition: .8s cubic-bezier(.4,0,.2,1);
+    width: 0;
+    >button {
+        position: absolute;
+        box-sizing: border-box;
+        cursor: pointer;
+        height: @height;
+        width: @height;
+        overflow: hidden;
+        background-color: transparent;
+        color: @white;
+        border: none;
+        outline: none;
+        i {
+            font-size: 14px;
+        }
+    }
+    .search-btn {
+        left: -(@height+5);
+        top: 3px;
+    }
+    .remove-btn {
+        right: -6px;
+        top: 3px;
+        display: none;
+    }
+    input {
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid @lightwhite;
+        font-weight: 400;
+        margin: 0;
+        width: 100%;
+        height: @height;
+        box-shadow: none;
+        background-color: transparent;
+        outline: none;
+        color: @white;
+        font-size: 12px;
+    }
+    label {
+        box-sizing: border-box;
+        bottom: 0;
+        color: @white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        display: block;
+        top: 7px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        &:after {
+            box-sizing: border-box;
+            background-color: @lightwhite;
+            bottom: 0;
+            content: '';
+            height: 2px;
+            width: 10px;
+            left: 45%;
+            position: absolute;
+            transition: .5s cubic-bezier(.4, 0, .2, 1);
+            visibility: hidden;
+        }
+    }
+}
+
+.search-widget.focus {
+    width: 200px;
+    .remove-btn {
+        display: block;
+    }
+    label:after {
+        left: 0;
+        width: 100%;
+        visibility: visible;
+    }
+}

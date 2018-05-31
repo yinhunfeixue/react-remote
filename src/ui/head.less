@@ -1,0 +1,130 @@
+@themeColor: #db0000;
+@red:#cc6699;
+@black:#080810;
+@lightblack:#2e2e35;
+@white:#fff;
+@gray:#eee;
+@bgred:rgba(204,102,153, 0.85);
+@height:50px;
+@fontSize:14px;
+
+.head {
+  position: fixed;
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background-color: @black;
+  height: @height;
+  font-size: @fontSize;
+  padding: 0 50px;
+  transition: height .5s linear;
+  &:after{
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+  .routate-title{
+    height: @height;
+    background-color: @red;
+    color: @black;
+    width: 300px;
+    position: fixed;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+    top: 18px;
+    left: -81px;
+    transform: rotate(-30deg);
+    transition: opacity 3s;
+    cursor: pointer;
+    }
+  .logo-img{
+    height: 40px;
+    margin-right: 10px;
+    margin-top: -2px;
+    vertical-align: middle;
+    transition: opacity 3s;
+    &:hover{
+        animation: rotate-logo 2s linear;
+    }
+  }
+  .title {
+      color: @red;
+      text-decoration: none;
+      line-height: @height;
+      font-weight: 600;
+      transition: opacity 3s;
+}
+  .head-menu {
+      float: right;
+      width: 210px;
+      overflow: hidden;
+      a {
+          padding: 0 10px;
+          line-height: @height;
+          color: @white;
+          text-decoration: none;
+          border-right: 1px solid @lightblack;
+        }
+      a:last-child {
+        border: none;
+    }
+      img{
+          height: @fontSize;
+      }
+  }
+}
+
+
+@keyframes rotate-logo {
+    0% { transform: rotateY(0deg); }
+    48% { transform: rotateY(180deg); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+
+.head.scroll-top{
+    height: @height+10;
+    box-shadow: 0 0 0 transparent;
+    .routate-title{
+        display: block;
+        opacity:1;
+    }
+    .logo-img,.title{
+        display: none;
+        opacity:0;
+    }
+}
+.head.scroll-middle{
+      .routate-title{
+        display: none;
+        opacity:0;
+    }
+    .logo-img,.title{
+        opacity:1;
+    }
+}
+
+.backtop{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    i{
+      font-size: 50px;
+      color: #998f8f;
+    }
+    &.effective{
+        display: block;
+    }
+    &:hover{
+        i{
+        color: @red;
+    }}
+  }

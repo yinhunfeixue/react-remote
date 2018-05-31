@@ -1,0 +1,64 @@
+@import './Global.less';
+@width: 160px;
+@height: 34px;
+.dropList {
+    position: relative;
+    vertical-align: middle;
+    width: @width;
+    height: @height;
+    .dropList-textInput {
+        width: 100%;
+        height: 100%;
+        .input {
+            cursor: pointer;
+        }
+    }
+    .dropList-arrow {
+        background-image: url('../icon/arrow-left.svg');
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        background-size: cover;
+        position: absolute;
+        right: 5px;
+        top: calc(~'50% - 6px');
+        transition: all 0.3s;
+        pointer-events: none;
+        cursor: pointer;
+    }
+    .dropList-list {
+        box-sizing: border-box;
+        width: @width;
+        max-width: 200px;
+        position: absolute;
+        opacity: 0;
+        transition: all 0.3s ease;
+        max-height: 0px;
+        box-shadow: none;
+        overflow: hidden;
+        left: 0;
+        top: @height + 2px;
+        z-index: @applicationTop;
+    }
+}
+
+.dropList-unable {
+    opacity: 0.5;
+}
+
+.dropList-open {
+    .dropList-list {
+        box-shadow: 0 0 3px @darkBackgroundColor;
+        opacity: 1;
+        max-height: 600px;
+        overflow: auto;
+    }
+    .dropList-arrow {
+        transform: rotateZ(90deg); // transform-origin: center center;
+    }
+}
+
+.dropList-unable-open {
+    .dropList-unable;
+    .dropList-open;
+}

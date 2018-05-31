@@ -1,0 +1,45 @@
+@import './Button.less';
+.toggleButton {
+    .button;
+}
+
+.toggleButton-unable {
+    .button-unable;
+}
+
+.toggleButton-selected {
+    background-color: @darkBackgroundColor;
+    border-color: @darkBorderColor;
+    box-shadow: inset 0 3px 5px @darkBackgroundColor * 0.8;
+}
+
+.toggleButton-down {
+    .button-down;
+}
+
+.toggleButton-over {
+    .button-over;
+}
+
+.toggleButton-down-selected {
+    .toggleButton-down;
+    .toggleButton-selected;
+    background-color: @lightBackgroundColor;
+    border-color: @lightBorderColor;
+}
+
+.toggleButton-over-selected {
+    .toggleButton-over;
+    .toggleButton-selected;
+    background-color: @lightBackgroundColor;
+    border-color: @lightBorderColor;
+    box-shadow: inset 0 3px 5px @lightBackgroundColor * 0.8;
+}
+
+.toggleButton-unable-selected {
+    .toggleButton-unable;
+    .toggleButton-selected;
+    border-color: @unableBoderColor;
+    background: @unableBackgroundColor;
+    color: @unableColor;
+}

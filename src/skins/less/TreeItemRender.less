@@ -1,0 +1,56 @@
+@import './Global.less';
+@fontSize: 14px;
+.treeItemRender {
+    background-color: @backgroundColor;
+    >.nodeContainer {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: @fontSize;
+        padding-left: 5px;
+        transition: all 0.3s;
+        background-color: @backgroundColor;
+        .treeItemIcon {
+            width: @fontSize;
+            height: @fontSize;
+            vertical-align: middle;
+        }
+        .treeItemLabel {
+            padding: 10px 5px;
+            box-sizing: border-box;
+            display: inline-block;
+            flex-grow: 1;
+        }
+    }
+    >.nodeContainer:hover {
+        background-color: @lightBackgroundColor;
+    }
+    >.childrenContainer {
+        margin-left: @fontSize * 2;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+}
+
+.treeItemRender-selected {
+    >.nodeContainer,
+    >.nodeContainer:hover {
+        background-color: @focusColor;
+        color: @focusTextColor;
+    }
+}
+
+.treeItemRender-open {
+    >.childrenContainer {
+        opacity: 1;
+        max-height: 1000px;
+        transition: none;
+    }
+}
+
+.treeItemRender-open-selected {
+    .treeItemRender-open;
+    .treeItemRender-selected
+}

@@ -1,0 +1,78 @@
+@import './Global.less';
+.menuItemRender {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    .nodeContainer {
+        word-break: keep-all;
+        padding: 10px;
+        padding-right: 30px;
+        text-align: left;
+        display: inline-block;
+        min-width: 100px;
+        transition: all 0.3s;
+        background-color: @backgroundColor;
+        .icon {
+            width: 12px;
+            height: 12px;
+            right: 10px;
+            vertical-align: middle;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-image: url('../icon/arrow-left.svg');
+            background-size: contain;
+        }
+    }
+    .nodeContainer:hover {
+        background-color: @lightBackgroundColor;
+    }
+    .childrenContainer {
+        z-index: @applicationTop;
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        box-shadow: @shadow;
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px @darkBackgroundColor;
+    }
+}
+
+.menuItemRender-open {
+    >.childrenContainer {
+        display: block;
+    }
+    >.nodeContainer {
+        background-color: @lightBackgroundColor;
+    }
+}
+
+.menuItemRender-selected {
+    >.nodeContainer,
+    >.nodeContainer:hover {
+        background-color: @focusColor;
+        color: @focusTextColor;
+    }
+}
+
+.menuItemRender-open-selected {
+    .menuItemRender-open;
+    .menuItemRender-selected;
+}
+
+.menuItemRender-0 {
+    >.childrenContainer {
+        left: 0;
+        top: 100%;
+    }
+    >.nodeContainer {
+        min-width: unset;
+        padding-right: 10px;
+        text-align: center;
+        >.icon {
+            background-image: none;
+        }
+    }
+}

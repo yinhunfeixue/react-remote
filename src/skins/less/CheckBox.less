@@ -1,0 +1,70 @@
+@import './Global.less';
+@pointSize: 14px;
+@pointinnerWidth: 10px;
+.checkBox {
+    margin-right: 10px;
+    cursor: pointer;
+    color: @textColor;
+    font-size: 14px;
+    -webkit-tap-highlight-color: transparent;
+    .checkBox-point {
+        width: @pointSize;
+        height: @pointSize;
+        border: 1px solid @borderColor;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 2px;
+        margin-right: 3px;
+        position: relative;
+    }
+    .checkBox-point-inner {
+        @position : @pointSize / 2;
+        width: 0;
+        height: 0;
+        display: inline-block;
+        background-color: @focusColor;
+        position: absolute;
+        left: @position;
+        top: @position;
+        border-radius: (@pointSize - @pointinnerWidth) / 2;
+        opacity: 0;
+        transition: all 0.2s ease-out;
+    }
+    .checkBox-label {
+        vertical-align: middle;
+    }
+}
+
+.checkBox-unable {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.checkBox-selected,
+.checkBox-over-selected,
+.checkBox-down-selected {
+    .checkBox-point {
+        color: @focusColor;
+        border-color: @focusColor;
+    }
+    .checkBox-point-inner {
+        @position: (@pointSize - @pointinnerWidth) / 2;
+        width: @pointinnerWidth;
+        height: @pointinnerWidth;
+        left: @position;
+        top: @position;
+        opacity: 1;
+    }
+}
+
+.checkBox-over,
+.checkBox-down {
+    .checkBox-point {
+        border-color: @focusColor;
+    }
+}
+
+.checkBox-unable-selected {
+    .checkBox-selected;
+    .checkBox-unable;
+}

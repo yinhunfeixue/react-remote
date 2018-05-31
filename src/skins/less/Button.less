@@ -1,0 +1,65 @@
+@import './Global.less';
+.button {
+    transition: background-color 0.3s;
+    display: inline-block;
+    background-color: @backgroundColor;
+    border: 1px solid @borderColor;
+    color: @textColor;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 6px 12px;
+    white-space: nowrap;
+    border-radius: 3px;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 14px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    span {
+        width: 100%;
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+    }
+}
+
+.button-over {
+    background-color: @lightBackgroundColor;
+    border-color: @lightBorderColor;
+}
+
+.button-down {
+    background-color: @darkBackgroundColor;
+    border-color: @darkBorderColor;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.button-unable {
+    border-color: @unableBoderColor;
+    background: @unableBackgroundColor;
+    color: @unableColor;
+    cursor: not-allowed;
+}
+
+.button.success {
+    background-color: @successBackgroundColor;
+    border: 1px solid @successBorderColor;
+    color: @successColor;
+}
+
+.button.warn.button-unable,
+.button.success.button-unable{
+    .button-unable;
+}
+
+.button.warn {
+    background-color: @warnBackgroundColor;
+    border: 1px solid @warnBorderColor;
+    color: @warnColor;
+}

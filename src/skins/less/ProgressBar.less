@@ -1,0 +1,36 @@
+@import './Global.less';
+.progressBar {
+    .track {
+        width: 150px;
+        height: 10px;
+        background-color: @darkBackgroundColor;
+        box-sizing: border-box;
+        border-radius: 5px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .bar {
+        height: 100%;
+        background-color: @focusColor;
+        box-sizing: border-box;
+        border-radius: 5px;
+        transition: width 0.3s;
+    }
+    .text {
+        font-size: 10px;
+        color: @textColor;
+        padding-left: 5px;
+        vertical-align: middle;
+    }
+}
+
+.progressBar-unable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    .bar {
+        background-color: @unableBoderColor;
+    }
+    .track {
+        background-color: @unableBackgroundColor;
+    }
+}

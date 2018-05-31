@@ -1,0 +1,63 @@
+@import './Global.less';
+.titleWindow {
+    min-width: 200px;
+    min-height: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    background-color: @backgroundColor;
+    box-sizing: border-box;
+    .header {
+        width: 100%;
+        padding: 5px 0px 5px 5px;
+        border-radius: 4px 4px 0 0;
+        border-bottom: 1px solid @borderColor;
+        box-sizing: border-box;
+        background-color: @backgroundColor;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+    .title {
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, .85);
+    }
+    .buttonContainer {
+        display: inline-flex;
+        font-size: 0;
+        position: absolute;
+        height: 100%;
+        right: 0;
+        top: 0;
+        align-items: center;
+    }
+    .contentContainer {
+        padding: 5px;
+    }
+    .moveArea {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.titleWindow-min {
+    min-height: 0px;
+    transition: min-height 0.3s;
+    .contentContainer {
+        display: none;
+    }
+}
+
+.titleWindow-max {
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    position: fixed !important;
+    margin: 3px;
+    z-index: @applicationTop;
+}

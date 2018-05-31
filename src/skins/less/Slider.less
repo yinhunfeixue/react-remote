@@ -1,0 +1,36 @@
+@import './Global.less';
+.slider {
+    cursor: pointer;
+    user-select: none;
+}
+
+.slider-track {
+    background: @lightBackgroundColor;
+    border-radius: 2px;
+}
+
+.slider-filled-track {
+    background-color: @focusColor;
+    border-radius: 2px;
+}
+
+.slider-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid @focusColor;
+    background-color: @backgroundColor;
+    transition: box-shadow 0.3s;
+}
+
+.slider-thumb-moving {
+    box-shadow: 0 0 8px @focusColor;
+}
+
+.slider-unable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    * {
+        cursor: not-allowed;
+    }
+}

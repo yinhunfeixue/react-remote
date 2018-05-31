@@ -1,0 +1,1 @@
+jsdoc src -r -t  ../ink-docstrap/template -R ./src/README.md -c ./jsdoc.conf.json && start chrome %cd%/out/index.html

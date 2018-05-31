@@ -1,0 +1,55 @@
+@import './Global.less';
+@width: 50px;
+@height: 25px;
+@foreMargin: 2px;
+.switch,
+.switch-over,
+.switch-down {
+    position: relative;
+    width: @width;
+    height: @height;
+    border-radius: @height / 2 + 1;
+    background-color: @darkBackgroundColor;
+    transition: all 0.3s;
+    .switch-fore {
+        position: absolute;
+        width: @height - @foreMargin * 2;
+        height: @height - @foreMargin * 2;
+        border-radius: @height / 2 + 1;
+        background-color: @backgroundColor;
+        top: @foreMargin;
+        left: @foreMargin;
+        transition: left 0.3s ease-out;
+        cursor: pointer;
+    }
+    .switch-fore:hover{
+        box-shadow: 0 0 10px @focusColor;
+    }
+}
+
+.switch-selected,
+.switch-over-selected,
+.switch-down-selected {
+    background-color: @focusColor;
+    .switch-fore {
+        left: @width - @foreMargin - (@height - @foreMargin * 2);
+    }
+}
+
+.switch-unable {
+    background-color: @unableBackgroundColor;
+    cursor: not-allowed;
+    .switch-fore {
+        background-color: @backgroundColor * 0.9;
+    }
+    .switch-fore:hover{
+        box-shadow: none;
+    }
+}
+
+.switch-unable-selected {
+    .switch-selected;
+    .switch-unable;
+    background-color: @focusColor;
+    opacity: 0.5;
+}
